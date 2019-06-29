@@ -1,0 +1,55 @@
+<!--
+<button type="button" class="btn btn-primary" [disabled]="state">Primary</button>
+<button type="button" class="btn btn-primary" (click)="clickEvent()">Don't !</button>
+<input class="form-control" value="{{imageURL}}">
+<button type="button" class="btn btn-primary" (click)="clickEventadd()">+</button>
+<input class="form-control" value="{{count1}}">
+<button type="button" class="btn btn-warning" (click)="clickEventsoustract()">-</button>
+<tr></tr>
+<img  src="{{imageURL}}">
+<hr>
+  <div class="form-group">
+    <label>ngModel:</label>
+  <input class="form-control" [(ngModel)]="message">
+</div>
+<button type="button" class="btn btn-warning" (click)="display()">Afficher </button>
+-->
+
+
+<br>
+<input class="form-control" [(ngModel)]="nom" placeholder="Nom & Prenom"><br>
+<br>
+<input class="form-control" [(ngModel)]="email" placeholder="Email" *ngIf="nom!=''"><br>
+<br>
+<input class="form-control" [(ngModel)]="phone" placeholder="Phone" *ngIf="email!=''"><br>
+<br>
+<input class="form-control" [(ngModel)]="about" placeholder="About" *ngIf="phone!=''">
+<br>
+<p></p>
+<button type="button" class="btn btn-danger" (click)="clear()">Annuler</button>
+<button type="button" class="btn btn-primary" (click)="display()">Valider</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th>nom</th>
+      <!--     <th>NAME<input class="form-control" [(ngModel)]="item"></th> -->
+      <th>email</th>
+      <th>phone</th>
+      <th>about</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of any|search:item"
+      [ngClass]="{'red': item.id==1,'black': item.id==2,'yellow': item.id==3}">
+      <td>{{item.nom}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.about}}</td>
+
+    </tr>
+  </tbody>
+</table>
+<br>
+{{date|date:'M/d/yy'}}
+<br>
+{{date|date:'MMMM d, y, h:mm:ss a z'}}
